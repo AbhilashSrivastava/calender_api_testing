@@ -1,0 +1,117 @@
+.box-wrapper{
+    text-align: center;
+    border: 1px solid #eff0f2;
+    background: #eff0f2;
+    border-radius: 6px;
+    margin: 10px;
+}
+.box-title{
+    background: #1abc9c;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.box-inner-container-wrapper{
+    margin: 20px 10px;
+    padding: 10px 5px;    
+}
+.box-inner-main-container{
+    margin: 30px 0px;
+}
+.monthly-checkbox-wrapper.checkbox{
+    display: inline-block;
+    width: 49%;
+    border: 1px solid #bdc3c7;
+    background: #bdc3c7;
+    padding: 20px;
+    margin: 5px;
+    border-radius:5px;
+}
+.type-select-wrapper{
+    margin: 10px;
+    padding: 10px;
+    font-size: 15px;
+}
+.checkbox-wrapper{
+    width: 70%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 5px; 
+}
+.month_by_day_key.dropdown-input{
+    border: 1px solid #48C966;
+    width: 115px;
+    background: #4BCCB2;
+    color: white;
+    font-weight: bold;
+    outline: none;
+}
+.month_by_day_key.dropdown-input:disabled, .month-number-input:disabled{
+    background:#89A09C;
+    border:1px solid black;
+}
+.month-number-input{
+    border: 1px solid #48C966;
+    border-radius: 5px;
+    width: 45px;
+    background: #4BCCB2;
+    color: white;
+    font-weight: bold;
+    outline:none;
+}
+.btn-add-custom{
+    border: 1px solid #48c9b0;
+    background: #48c9b0;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 25px;
+    -webkit-transition: border .25s linear,color .25s linear,background-color .25s linear;
+    transition: border .25s linear,color .25s linear,background-color .25s linear;
+    -webkit-font-smoothing: subpixel-antialiased;    
+}
+.btn-add-custom.disabled:hover{
+    color:#fff;
+}
+.btn-add-custom:not(.disabled):hover{
+    color:#fff;
+    border:1px solid #48C966;
+    background: #48C966;
+}
+.btn-add-custom:hover, .btn-add-custom:active, .btn-add-custom:focus, .btn-add-custom.disabled:hover, .btn-add-custom.disabled:active, .btn-add-custom.disabled:focus{
+    outline: none !important;
+}
+.month-absolute-btn{
+    display: block;
+    margin: 25px auto;    
+}
+.btn-custom-flat{
+    border-color: #34495e;
+    width: 120px;
+    color: #fff;
+    background-color: #34495e;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    border: none;
+    border-radius: 4px;
+    -webkit-transition: border .25s linear,color .25s linear,background-color .25s linear;
+    transition: border .25s linear,color .25s linear,background-color .25s linear;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.btn-custom-flat:hover{
+    color: #fff;
+    background-color: #415b76;
+    border-color: #415b76;
+}
+.btn-custom-flat, .btn-custom-flat:hover, .btn-custom-flat:active{
+    outline: none;
+}
+.type-select-title{
+    font-weight: bold;
+    color: #34495e;
+}

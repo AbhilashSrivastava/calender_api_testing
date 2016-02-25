@@ -30,7 +30,7 @@ var Yearly = React.createClass({
             $('.by_year_day_select').each(function(index,element){
                 element.disabled = true;
             });
-            $('.by_year_day_select').addClass('disabled');
+            $('.by_year_day_select_btn').addClass('disabled');
             this.yearDayActive = false;
         }
     },
@@ -47,7 +47,7 @@ var Yearly = React.createClass({
             $('.by_year_week_select').each(function(index,element){
                 element.disabled = true;
             });
-            $('.by_year_week_select').addClass('disabled');
+            $('.by_year_week_select_btn').addClass('disabled');
             this.yearWeekActive = false;
         }
     },
@@ -104,27 +104,37 @@ var Yearly = React.createClass({
     render: function(){
         return(
             <div className="box-wrapper">
-                <div> 
-                    Frequency Selected To Be Yearly 
-                </div>
-                <div>
+                <div className="box-title">
                     Please Select The Yearly Days or/and Weeks To Be Scheduling The Mails
                 </div>
-                <div className="checkbox">
-                    <input type="checkbox" name="by_year_day_select" index={1} onChange={this.toggleYearDay.bind(this)} /> 
-                    <span className="by_year_day_select" disabled> Select By Year Day - Count(Between -365 to +365)</span>
-                    <input type="number" className="by_year_day_select" id="monthly_by_month_day" min="-365" max="365" onChange={this.getYearDay} disabled />
-                    <button className="by_year_day_select_btn disabled btn-primary btn" onClick={this.addYearDay.bind(this)} > Add Day </button>
-                    <span className="notify hide" id="addYearDayNotify" ></span>
+                <div className="box-inner-container-wrapper">
+                    <div className="box-inner-main-container">
+                        <div className="checkbox monthly-checkbox-wrapper">
+                            <div className="type-select-wrapper">
+                                <input type="checkbox" name="by_year_day_select" index={1} onChange={this.toggleYearDay.bind(this)} /> 
+                                <span className="by_year_day_select type-select-title" disabled> Select By Year Day - Count(Between -365 to +365)</span>
+                            </div>
+                            <div className="checkbox-wrapper">
+                                <input type="number" className="by_year_day_select month-number-input" id="monthly_by_month_day" min="-365" max="365" onChange={this.getYearDay} disabled />
+                                <button className="by_year_day_select_btn disabled month-absolute-btn btn-add-custom btn" onClick={this.addYearDay.bind(this)} > Add Day </button>
+                            </div>
+                            <span className="notify hide" id="addYearDayNotify" ></span>
+                        </div>
+                        <div className="checkbox monthly-checkbox-wrapper">
+                            <div className="type-select-wrapper">
+                                <input type="checkbox" name="by_year_week_select" index={1} onChange={this.toggleYearWeek.bind(this)} /> 
+                                <span className="by_year_week_select type-select-title" disabled> Select By Year Week - Count(Between 0 to 52)</span>
+                            </div>
+                            <div className="checkbox-wrapper">
+                                <input type="number" className="by_year_week_select month-number-input" id="monthly_by_month_day" min="0" max="52" onChange={this.getYearWeek} disabled/>
+                                <button className="by_year_week_select_btn disabled month-absolute-btn btn-add-custom btn" onClick={this.addYearWeek.bind(this)} > Add Week </button>
+                            </div>
+                            <span className="notify hide" id="addYearWeekNotify" ></span>
+
+                        </div>
+                    </div>
+                    <button className="btn btn-primary btn-custom-flat" id="weekly_select" onClick={this.handleDetailsSubmit}> Submit </button>
                 </div>
-                <div className="checkbox">
-                    <input type="checkbox" name="by_year_week_select" index={1} onChange={this.toggleYearWeek.bind(this)} /> 
-                    <span className="by_year_week_select" disabled> Select By Year Week - Count(Between 0 to 52)</span>
-                    <input type="number" className="by_year_week_select" id="monthly_by_month_day" min="0" max="52" onChange={this.getYearWeek} disabled/>
-                    <button className="by_year_week_select_btn disabled btn-primary btn" onClick={this.addYearWeek.bind(this)} > Add Week </button>
-                    <span className="notify hide" id="addYearWeekNotify" ></span>
-                </div>
-                <button className="btn btn-primary" id="weekly_select" onClick={this.handleDetailsSubmit}> Submit </button>
             </div> 
         )
     }

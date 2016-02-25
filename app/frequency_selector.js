@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var FrequencyDropdown = require('./frequency_dropdown');
-
+require('./css/home.css');
 var frequency = [{
     name: "Weekly",
     id: "weeklyFreq",
@@ -37,16 +37,24 @@ var FrequencySelector = React.createClass({
         return(
             <div className="main-head-container">
                 <div className="form-group" >
-                    <label id="title">Select The Frequency For Your Email Scheduling</label>
-                    
-                    <label for="weeklyFreq"> Weekly </label>
-                    <input type="radio" id="weeklyFreq" name="frequency" value={0} onChange={this.freqChange.bind(this)} /> 
-                    
-                    <label for="monthlyFreq"> Monthly </label>
-                    <input type="radio" id="monthlyFreq" name="frequency" value={1} onChange={this.freqChange.bind(this)} /> 
-                    
-                    <label for="yearlyFreq"> Yearly </label>
-                    <input type="radio" id="yearlyFreq" name="frequency" value={2} onChange={this.freqChange.bind(this)} />
+                    <div className="frequency-selector main-details-div">
+                        <label id="title">Select The Frequency For Your Email Scheduling</label>
+                        
+                        <div className="frequency-option">
+                            <label for="weeklyFreq"> Weekly </label>
+                            <input type="radio" className="frequency-option-switch" id="weeklyFreq" name="frequency" value={0} onChange={this.freqChange.bind(this)} /> 
+                        </div>
+                        
+                        <div className="frequency-option">
+                            <label for="monthlyFreq"> Monthly </label>
+                            <input type="radio" className="frequency-option-switch" id="monthlyFreq" name="frequency" value={1} onChange={this.freqChange.bind(this)} /> 
+                        </div>
+                        
+                        <div className="frequency-option">
+                            <label for="yearlyFreq"> Yearly </label>
+                            <input type="radio"  className="frequency-option-switch" id="yearlyFreq" name="frequency" value={2} onChange={this.freqChange.bind(this)} />
+                        </div>
+                    </div>
                     
                     <FrequencyDropdown selected={this.state.selected_frequency} submitDetails={(details) => this.props.submitDetails(details)} />
                 </div>

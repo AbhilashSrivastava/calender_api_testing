@@ -1,0 +1,65 @@
+.box-wrapper{
+    text-align: center;
+    border: 1px solid #eff0f2;
+    background: #eff0f2;
+    border-radius: 6px;
+    margin: 10px;
+}
+.box-title{
+    background: #1abc9c;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold; 
+}
+.checkbox-element-container{
+    margin: 10px 10px;
+    padding: 7px;
+    width: 135px;
+    border: 1px solid #34495e;
+    background: #bdc3c7;
+    border-radius: 25px;
+    display: inline-block;
+    color: #34495e;
+    font-weight: bold;
+}
+.checkbox label.weekly-select-label{
+    color: #34495e;
+    padding: 0;
+}
+.checkbox input[type=checkbox].weekly-select-checkbox{
+    position: relative;
+    float: right;
+}
+.box-inner-container-wrapper{
+    margin: 20px 10px;
+    padding: 10px 5px;    
+}
+.box-inner-main-container{
+    margin: 30px 0px;
+}
+.btn-custom-flat{
+    border-color: #34495e;
+    width: 120px;
+    color: #fff;
+    background-color: #34495e;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    border: none;
+    border-radius: 4px;
+    -webkit-transition: border .25s linear,color .25s linear,background-color .25s linear;
+    transition: border .25s linear,color .25s linear,background-color .25s linear;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.btn-custom-flat:hover{
+    color: #fff;
+    background-color: #415b76;
+    border-color: #415b76;
+}
+.btn-custom-flat, .btn-custom-flat:hover, .btn-custom-flat:active{
+    outline: none;
+}

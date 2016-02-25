@@ -1,0 +1,35 @@
+.main-details-div{
+    padding: 10px;
+    margin: 10px;
+    background: #eff0f2;
+    border: 1px solid #eff0f2;    
+}
+.details-field-wrapper{
+    width: 95%;
+    margin: 20px auto;
+}
+.field-key{
+    display:inline-block;
+    width:120px;
+}
+.field-value{
+    display:inline-block;
+}
+.frequency-option{
+    width: 113px;
+    background: #1abc9c;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid #1abc9c;
+    border-radius: 45px;
+    text-align: center;
+    display: inline-block;
+}
+.frequency-option-switch{
+    float:right;
+}
+.navbar-default{
+    background: #34495e;
+    color:white;
+    font-weight: bold;
+}

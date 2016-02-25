@@ -50,8 +50,8 @@
 	var ReactDOM = __webpack_require__(158);
 	var Router = __webpack_require__(159).Router;
 	var routes = __webpack_require__(216);
-	__webpack_require__(329);
-	__webpack_require__(333);
+	__webpack_require__(335);
+	__webpack_require__(339);
 
 	ReactDOM.render(React.createElement(
 	    Router,
@@ -24693,7 +24693,7 @@
 
 	var React = __webpack_require__(1);
 	var Home = __webpack_require__(217);
-	var Index = __webpack_require__(328);
+	var Index = __webpack_require__(334);
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
 	var IndexRoute = Router.IndexRoute;
@@ -24715,7 +24715,8 @@
 	var DatePicker = __webpack_require__(218);
 	var Moment = __webpack_require__(219);
 	var FrequencySelector = __webpack_require__(319);
-	__webpack_require__(324);
+	__webpack_require__(332);
+	__webpack_require__(330);
 
 	var Home = React.createClass({
 	    displayName: 'Home',
@@ -24870,37 +24871,57 @@
 	            { className: 'main-parent-container' },
 	            React.createElement(
 	                'div',
-	                { className: 'form-group' },
+	                { className: 'form-group main-details-div' },
 	                React.createElement(
-	                    'label',
-	                    { 'for': 'title' },
-	                    'Title For Email Schedule'
+	                    'div',
+	                    { className: 'details-field-wrapper' },
+	                    React.createElement(
+	                        'label',
+	                        { 'for': 'title', className: 'title-input-key' },
+	                        'Title For Email Schedule'
+	                    ),
+	                    React.createElement('input', { type: 'text', name: 'title', placeholder: 'Give a title to the event', id: 'title', className: 'form-control title-input-value', required: true, onChange: this.updateText })
 	                ),
-	                React.createElement('input', { type: 'text', name: 'title', placeholder: 'Give a title to the event', id: 'title', className: 'form-control', required: true, onChange: this.updateText }),
 	                React.createElement(
-	                    'label',
-	                    { 'for': 'startDateInput' },
-	                    'Start Date'
+	                    'div',
+	                    { className: 'details-field-wrapper' },
+	                    React.createElement(
+	                        'label',
+	                        { 'for': 'startDateInput', className: 'field-key' },
+	                        'Start Date'
+	                    ),
+	                    React.createElement(DatePicker, { minDate: Moment(), className: 'date_input start_date_input field-value', name: 'startDateInput', id: 'startDateInput', selected: this.state.startDate, onChange: this.handleStartDateChange, required: true })
 	                ),
-	                React.createElement(DatePicker, { minDate: Moment(), className: 'date_input start_date_input', name: 'startDateInput', id: 'startDateInput', selected: this.state.startDate, onChange: this.handleStartDateChange, required: true }),
 	                React.createElement(
-	                    'label',
-	                    { 'for': 'endDateInput' },
-	                    'End Date'
+	                    'div',
+	                    { className: 'details-field-wrapper' },
+	                    React.createElement(
+	                        'label',
+	                        { 'for': 'endDateInput', className: 'field-key' },
+	                        'End Date'
+	                    ),
+	                    React.createElement(DatePicker, { minDate: Moment().add(1, 'days'), className: 'date_input end_date_input field-value', name: 'endDateInput', id: 'endDateInput', selected: this.state.endDate, onChange: this.handleEndDateChange, required: true })
 	                ),
-	                React.createElement(DatePicker, { minDate: Moment().add(1, 'days'), className: 'date_input end_date_input', name: 'endDateInput', id: 'endDateInput', selected: this.state.endDate, onChange: this.handleEndDateChange, required: true }),
 	                React.createElement(
-	                    'label',
-	                    { 'for': 'untilDateInput' },
-	                    'Until Date'
+	                    'div',
+	                    { className: 'details-field-wrapper' },
+	                    React.createElement(
+	                        'label',
+	                        { 'for': 'untilDateInput', className: 'field-key' },
+	                        'Until Date'
+	                    ),
+	                    React.createElement(DatePicker, { minDate: Moment().add(1, 'days'), className: 'date_input until_date_input field-value', name: 'untilDateInput', id: 'untilDateInput', selected: this.state.untilDate, onChange: this.handleUntilDateChange })
 	                ),
-	                React.createElement(DatePicker, { minDate: Moment().add(1, 'days'), className: 'date_input until_date_input', name: 'untilDateInput', id: 'untilDateInput', selected: this.state.untilDate, onChange: this.handleUntilDateChange }),
 	                React.createElement(
-	                    'label',
-	                    { 'for': 'countNumber' },
-	                    ' Mail Count '
+	                    'div',
+	                    { className: 'details-field-wrapper' },
+	                    React.createElement(
+	                        'label',
+	                        { 'for': 'countNumber', className: 'field-key' },
+	                        ' Mail Count '
+	                    ),
+	                    React.createElement('input', { type: 'number', className: 'count_number field-value', id: 'countNumber', required: true, onChange: this.updateMailCount })
 	                ),
-	                React.createElement('input', { type: 'number', className: 'count_number', id: 'countNumber', required: true, onChange: this.updateMailCount }),
 	                React.createElement(
 	                    'span',
 	                    { className: 'error-msg hide' },
@@ -37890,7 +37911,7 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var FrequencyDropdown = __webpack_require__(320);
-
+	__webpack_require__(330);
 	var frequency = [{
 	    name: "Weekly",
 	    id: "weeklyFreq",
@@ -37934,28 +37955,44 @@
 	                'div',
 	                { className: 'form-group' },
 	                React.createElement(
-	                    'label',
-	                    { id: 'title' },
-	                    'Select The Frequency For Your Email Scheduling'
+	                    'div',
+	                    { className: 'frequency-selector main-details-div' },
+	                    React.createElement(
+	                        'label',
+	                        { id: 'title' },
+	                        'Select The Frequency For Your Email Scheduling'
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'frequency-option' },
+	                        React.createElement(
+	                            'label',
+	                            { 'for': 'weeklyFreq' },
+	                            ' Weekly '
+	                        ),
+	                        React.createElement('input', { type: 'radio', className: 'frequency-option-switch', id: 'weeklyFreq', name: 'frequency', value: 0, onChange: this.freqChange.bind(this) })
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'frequency-option' },
+	                        React.createElement(
+	                            'label',
+	                            { 'for': 'monthlyFreq' },
+	                            ' Monthly '
+	                        ),
+	                        React.createElement('input', { type: 'radio', className: 'frequency-option-switch', id: 'monthlyFreq', name: 'frequency', value: 1, onChange: this.freqChange.bind(this) })
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'frequency-option' },
+	                        React.createElement(
+	                            'label',
+	                            { 'for': 'yearlyFreq' },
+	                            ' Yearly '
+	                        ),
+	                        React.createElement('input', { type: 'radio', className: 'frequency-option-switch', id: 'yearlyFreq', name: 'frequency', value: 2, onChange: this.freqChange.bind(this) })
+	                    )
 	                ),
-	                React.createElement(
-	                    'label',
-	                    { 'for': 'weeklyFreq' },
-	                    ' Weekly '
-	                ),
-	                React.createElement('input', { type: 'radio', id: 'weeklyFreq', name: 'frequency', value: 0, onChange: this.freqChange.bind(this) }),
-	                React.createElement(
-	                    'label',
-	                    { 'for': 'monthlyFreq' },
-	                    ' Monthly '
-	                ),
-	                React.createElement('input', { type: 'radio', id: 'monthlyFreq', name: 'frequency', value: 1, onChange: this.freqChange.bind(this) }),
-	                React.createElement(
-	                    'label',
-	                    { 'for': 'yearlyFreq' },
-	                    ' Yearly '
-	                ),
-	                React.createElement('input', { type: 'radio', id: 'yearlyFreq', name: 'frequency', value: 2, onChange: this.freqChange.bind(this) }),
 	                React.createElement(FrequencyDropdown, { selected: this.state.selected_frequency, submitDetails: function submitDetails(details) {
 	                        return _this.props.submitDetails(details);
 	                    } })
@@ -37975,8 +38012,8 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var Weekly = __webpack_require__(321);
-	var Monthly = __webpack_require__(322);
-	var Yearly = __webpack_require__(323);
+	var Monthly = __webpack_require__(326);
+	var Yearly = __webpack_require__(329);
 
 	var select_hash = [Weekly, Monthly, Yearly];
 	var FrequencyDropdown = React.createClass({
@@ -38012,6 +38049,7 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
+	__webpack_require__(322);
 	var weekly_data = [{ index: 0, day: 'Monday', val: 'MO' }, { index: 1, day: 'Tuesday', val: 'TU' }, { index: 2, day: 'Wednesday', val: 'WE' }, { index: 3, day: 'Thursday', val: 'TH' }, { index: 4, day: 'Friday', val: 'FR' }, { index: 5, day: 'Saturday', val: 'SA' }, { index: 6, day: 'Sunday', val: 'SU' }];
 	var Weekly = React.createClass({
 	    displayName: 'Weekly',
@@ -38059,15 +38097,15 @@
 	        var checkboxElements = weekly_data.map(function (elem, index) {
 	            return React.createElement(
 	                'div',
-	                { className: 'checkbox', key: elem.index },
+	                { className: 'checkbox-element-container checkbox', key: elem.index },
 	                React.createElement(
 	                    'span',
-	                    { className: '' },
+	                    { 'for': elem.day, className: 'weekly-select-label' },
 	                    ' ',
 	                    elem.day,
 	                    ' '
 	                ),
-	                React.createElement('input', { type: 'checkbox', name: elem.day, align: 'left', 'data-id': elem.index, onChange: this.handleChange })
+	                React.createElement('input', { className: 'weekly-select-checkbox', type: 'checkbox', name: elem.day, align: 'left', 'data-id': elem.index, onChange: this.handleChange })
 	            );
 	        }.bind(this));
 	        return React.createElement(
@@ -38075,23 +38113,22 @@
 	            { className: 'box-wrapper' },
 	            React.createElement(
 	                'div',
-	                null,
-	                'Frequency Selected To Be Weekly'
+	                { className: 'weekly-title box-title' },
+	                'Please Select The Days In A Week To Be Scheduling The Mails'
 	            ),
 	            React.createElement(
 	                'div',
-	                null,
-	                'Please Select The Weekly Days To Be Scheduling The Mails'
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'main-container' },
-	                checkboxElements
-	            ),
-	            React.createElement(
-	                'button',
-	                { className: 'btn btn-primary', id: 'weekly_select', onClick: this.handleDetailsSubmit },
-	                ' Submit '
+	                { className: 'box-inner-container-wrapper' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'box-inner-main-container' },
+	                    checkboxElements
+	                ),
+	                React.createElement(
+	                    'button',
+	                    { className: 'btn btn-primary btn-custom-flat', id: 'weekly_select', onClick: this.handleDetailsSubmit },
+	                    ' Submit '
+	                )
 	            )
 	        );
 	    }
@@ -38103,397 +38140,20 @@
 /* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
-	var weekly_data = [{ index: 0, day: 'Monday', val: 'MO' }, { index: 1, day: 'Tuesday', val: 'TU' }, { index: 2, day: 'Wednesday', val: 'WE' }, { index: 3, day: 'Thursday', val: 'TH' }, { index: 4, day: 'Friday', val: 'FR' }, { index: 5, day: 'Saturday', val: 'SA' }, { index: 6, day: 'Sunday', val: 'SU' }];
-	var Monthly = React.createClass({
-	    displayName: 'Monthly',
-
-	    monthDayActive: false,
-	    monthAbsoluteDayActive: false,
-	    getMonthDayNumber: function getMonthDayNumber(ref) {
-	        if (ref) {
-	            this.monthDayNumber = $(ref.currentTarget).val();
-	        }
-	    },
-	    getMonthSelectName: function getMonthSelectName(ref) {
-	        if (ref) {
-	            this.monthSelectName = $(ref.currentTarget).val();
-	        }
-	    },
-	    getAbsoluteDay: function getAbsoluteDay(ref) {
-	        if (ref) {
-	            this.monthAbsoluteDay = $(ref.currentTarget).val();
-	        }
-	    },
-	    getInitialState: function getInitialState() {
-	        this.state = {
-	            by_day: [],
-	            by_month_day: []
-	        };
-	        return this.state;
-	    },
-	    addDay: function addDay() {
-	        if (this.monthDayActive === false) {
-	            return;
-	        }
-	        if (this.monthDayNumber == 0 || this.monthSelectName == undefined) {
-	            //show error
-	            console.log('Please Enter A Valid Choice');
-	        } else {
-	            //render element
-	            this.state.by_day.push(this.monthDayNumber + '' + this.monthSelectName);
-	            $('#addDayNotify').text('Added ' + this.monthDayNumber + '' + this.monthSelectName + ' to the mailing list');
-	            $('#addDayNotify').removeClass('hide');
-	            setTimeout(function () {
-	                $('#addDayNotify').text('');
-	                $('#addDayNotify').addClass('hide');
-	            }, 2000);
-	        }
-	    },
-	    addAbsoluteDay: function addAbsoluteDay() {
-	        if (this.monthAbsoluteDayActive === false) {
-	            return;
-	        }
-	        if (this.monthAbsoluteDay == undefined) {
-	            console.log('Please select a valid choice');
-	        } else {
-	            this.state.by_month_day.push(this.monthAbsoluteDay);
-	            console.log("Pushed " + this.monthAbsoluteDay + " to array");
-	            $('#addAbsoluteDayNotify').text('Added ' + this.monthAbsoluteDay + ' to the mailing list');
-	            $('#addAbsoluteDayNotify').removeClass('hide');
-	            setTimeout(function () {
-	                $('#addAbsoluteDayNotify').text('');
-	                $('#addAbsoluteDayNotify').addClass('hide');
-	            }, 2000);
-	        }
-	    },
-	    toggleMonthday: function toggleMonthday(e) {
-	        var elem = e.currentTarget;
-	        if (elem.checked) {
-	            $('.month_by_day_key').each(function (index, element) {
-	                element.disabled = false;
-	            });
-	            $('.month_by_day_key_btn').removeClass('disabled');
-	            this.monthDayActive = true;
-	        } else {
-	            $('.month_by_day_key').each(function (index, element) {
-	                element.disabled = true;
-	            });
-	            $('.month_by_day_key_btn').addClass('disabled');
-	            this.monthDayActive = false;
-	        }
-	    },
-	    toggleAbsoluteDay: function toggleAbsoluteDay(e) {
-	        var elem = e.currentTarget;
-	        if (elem.checked) {
-	            $('.month_by_absolute_day_key').each(function (index, element) {
-	                element.disabled = false;
-	            });
-	            $('.month_by_absolute_day_key_btn').removeClass('disabled');
-	            this.monthAbsoluteDayActive = true;
-	        } else {
-	            $('.month_by_absolute_day_key').each(function (index, element) {
-	                element.disabled = true;
-	            });
-	            $('.month_by_absolute_day_key_btn').addClass('disabled');
-	            this.monthAbsoluteDayActive = false;
-	        }
-	    },
-	    handleDetailsSubmit: function handleDetailsSubmit() {
-	        var send_obj = {};
-	        send_obj['frequency'] = "MONTHLY";
-	        send_obj['data'] = {};
-	        if (this.monthDayActive) {
-	            send_obj.data.by_day = true;
-	            send_obj.data.by_day_obj = this.state.by_day;
-	        }
-	        if (this.monthAbsoluteDayActive) {
-	            send_obj.data.by_month_day = true;
-	            send_obj.data.by_month_day_obj = this.state.by_month_day;
-	        }
-	        if (!this.monthDayActive && !this.monthAbsoluteDayActive) {
-	            send_obj.data.by_month_day = false;
-	            send_obj.data.by_day = false;
-	        }
-	        this.props.submitDetails(send_obj);
-	    },
-	    render: function render() {
-	        var selectElements = weekly_data.map(function (elem, index) {
-	            return React.createElement(
-	                'option',
-	                { name: elem.day, key: elem.index, value: elem.val },
-	                ' ',
-	                elem.day,
-	                ' '
-	            );
-	        });
-	        return React.createElement(
-	            'div',
-	            { className: 'box-wrapper' },
-	            React.createElement(
-	                'div',
-	                null,
-	                'Frequency Selected To Be Monthly'
-	            ),
-	            React.createElement(
-	                'div',
-	                null,
-	                'Please Select The Monthly Days To Be Scheduling The Mails'
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'main-container' },
-	                React.createElement(
-	                    'div',
-	                    { className: 'checkbox' },
-	                    React.createElement('input', { type: 'checkbox', name: 'by_day_select', index: 0, onChange: this.toggleMonthday.bind(this) }),
-	                    React.createElement(
-	                        'span',
-	                        { className: '' },
-	                        ' Select By Day - Count(Between +4 to -4 , 0 Not Allowed)'
-	                    ),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'checkbox-wrapper ' },
-	                        React.createElement('input', { type: 'number', className: 'month_by_day_key', id: 'monthly_by_day', min: '-4', max: '4', onChange: this.getMonthDayNumber, disabled: true }),
-	                        React.createElement(
-	                            'span',
-	                            { className: 'month_by_day_key', disabled: true },
-	                            ' Select By Day - Day '
-	                        ),
-	                        React.createElement(
-	                            'select',
-	                            { onChange: this.getMonthSelectName, className: 'month_by_day_key', disabled: true },
-	                            selectElements
-	                        ),
-	                        React.createElement(
-	                            'button',
-	                            { className: 'btn btn-primary month_by_day_key_btn disabled', onClick: this.addDay.bind(this) },
-	                            'Add Day'
-	                        ),
-	                        React.createElement('span', { className: 'notify hide', id: 'addDayNotify' })
-	                    )
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'checkbox' },
-	                    React.createElement('input', { type: 'checkbox', name: 'by_month_day_select', index: 1, onChange: this.toggleAbsoluteDay }),
-	                    React.createElement(
-	                        'span',
-	                        { className: '' },
-	                        ' Select By Month Day - Count(Between 0 to 30)'
-	                    ),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'checkbox-wrapper' },
-	                        React.createElement('input', { type: 'number', className: 'month_by_absolute_day_key', id: 'monthly_by_month_day', min: '0', max: '30', onChange: this.getAbsoluteDay, disabled: true }),
-	                        React.createElement(
-	                            'button',
-	                            { className: 'btn btn-primary month_by_absolute_day_key_btn disabled', onClick: this.addAbsoluteDay.bind(this) },
-	                            'Add Day'
-	                        ),
-	                        React.createElement('span', { className: 'notify hide', id: 'addAbsoluteDayNotify' })
-	                    )
-	                )
-	            ),
-	            React.createElement(
-	                'button',
-	                { className: 'btn btn-primary', id: 'weekly_select', onClick: this.handleDetailsSubmit },
-	                ' Submit '
-	            )
-	        );
-	    }
-	});
-
-	module.exports = Monthly;
-
-/***/ },
-/* 323 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
-
-	var Yearly = React.createClass({
-	    displayName: 'Yearly',
-
-	    yearDayActive: false,
-	    yearWeekActive: false,
-	    getYearDay: function getYearDay(ref) {
-	        this.yearDay = $(ref.currentTarget).val();
-	    },
-	    getYearWeek: function getYearWeek(ref) {
-	        this.yearWeek = $(ref.currentTarget).val();
-	    },
-	    getInitialState: function getInitialState() {
-	        this.state = {
-	            year_day: [],
-	            year_week: []
-	        };
-	        return this.state;
-	    },
-	    toggleYearDay: function toggleYearDay(e) {
-	        var elem = e.currentTarget;
-	        if (elem.checked) {
-	            $('.by_year_day_select').each(function (index, element) {
-	                element.disabled = false;
-	            });
-	            $('.by_year_day_select_btn').removeClass('disabled');
-	            this.yearDayActive = true;
-	        } else {
-	            $('.by_year_day_select').each(function (index, element) {
-	                element.disabled = true;
-	            });
-	            $('.by_year_day_select').addClass('disabled');
-	            this.yearDayActive = false;
-	        }
-	    },
-	    toggleYearWeek: function toggleYearWeek(e) {
-	        var elem = e.currentTarget;
-	        if (elem.checked) {
-	            $('.by_year_week_select').each(function (index, element) {
-	                element.disabled = false;
-	            });
-	            $('.by_year_week_select_btn').removeClass('disabled');
-	            this.yearWeekActive = true;
-	        } else {
-	            $('.by_year_week_select').each(function (index, element) {
-	                element.disabled = true;
-	            });
-	            $('.by_year_week_select').addClass('disabled');
-	            this.yearWeekActive = false;
-	        }
-	    },
-	    addYearDay: function addYearDay() {
-	        if (this.yearDayActive == false) {
-	            return;
-	        }
-	        if (this.yearDay == undefined) {
-	            console.log('Please Enter A Valid Number ');
-	        } else {
-	            this.state.year_day.push(this.yearDay);
-	            $('#addYearDayNotify').text('Added ' + this.yearDay + ' to the mailing list');
-	            $('#addYearDayNotify').removeClass('hide');
-	            setTimeout(function () {
-	                $('#addYearDayNotify').text('');
-	                $('#addYearDayNotify').addClass('hide');
-	            }, 2000);
-	        }
-	    },
-	    addYearWeek: function addYearWeek() {
-	        if (this.yearWeekActive == false) {
-	            return;
-	        }
-	        if (this.yearWeek == undefined) {
-	            console.log('Please Enter A Valid Number ');
-	        } else {
-	            this.state.year_week.push(this.yearWeek);
-	            $('#addYearWeekNotify').text('Added ' + this.yearWeek + ' to the mailing list');
-	            $('#addYearWeekNotify').removeClass('hide');
-	            setTimeout(function () {
-	                $('#addYearWeekNotify').text('');
-	                $('#addYearWeekNotify').addClass('hide');
-	            }, 2000);
-	        }
-	    },
-	    handleDetailsSubmit: function handleDetailsSubmit() {
-	        var send_obj = { frequency: 'YEARLY', data: {} };
-	        if (this.yearDayActive) {
-	            send_obj.data.by_day = true;
-	            send_obj.data.by_day_obj = this.state.year_day;
-	        }
-	        if (this.yearWeekActive) {
-	            send_obj.data.by_week = true;
-	            send_obj.data.by_week_obj = this.state.year_week;
-	        }
-	        if (!this.yearDayActive && !this.yearWeekActive) {
-	            send_obj.data.by_day = false;
-	            send_obj.data.by_week = false;
-	        }
-	        this.props.submitDetails(send_obj);
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'box-wrapper' },
-	            React.createElement(
-	                'div',
-	                null,
-	                'Frequency Selected To Be Yearly'
-	            ),
-	            React.createElement(
-	                'div',
-	                null,
-	                'Please Select The Yearly Days or/and Weeks To Be Scheduling The Mails'
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'checkbox' },
-	                React.createElement('input', { type: 'checkbox', name: 'by_year_day_select', index: 1, onChange: this.toggleYearDay.bind(this) }),
-	                React.createElement(
-	                    'span',
-	                    { className: 'by_year_day_select', disabled: true },
-	                    ' Select By Year Day - Count(Between -365 to +365)'
-	                ),
-	                React.createElement('input', { type: 'number', className: 'by_year_day_select', id: 'monthly_by_month_day', min: '-365', max: '365', onChange: this.getYearDay, disabled: true }),
-	                React.createElement(
-	                    'button',
-	                    { className: 'by_year_day_select_btn disabled btn-primary btn', onClick: this.addYearDay.bind(this) },
-	                    ' Add Day '
-	                ),
-	                React.createElement('span', { className: 'notify hide', id: 'addYearDayNotify' })
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'checkbox' },
-	                React.createElement('input', { type: 'checkbox', name: 'by_year_week_select', index: 1, onChange: this.toggleYearWeek.bind(this) }),
-	                React.createElement(
-	                    'span',
-	                    { className: 'by_year_week_select', disabled: true },
-	                    ' Select By Year Week - Count(Between 0 to 52)'
-	                ),
-	                React.createElement('input', { type: 'number', className: 'by_year_week_select', id: 'monthly_by_month_day', min: '0', max: '52', onChange: this.getYearWeek, disabled: true }),
-	                React.createElement(
-	                    'button',
-	                    { className: 'by_year_week_select_btn disabled btn-primary btn', onClick: this.addYearWeek.bind(this) },
-	                    ' Add Week '
-	                ),
-	                React.createElement('span', { className: 'notify hide', id: 'addYearWeekNotify' })
-	            ),
-	            React.createElement(
-	                'button',
-	                { className: 'btn btn-primary', id: 'weekly_select', onClick: this.handleDetailsSubmit },
-	                ' Submit '
-	            )
-	        );
-	    }
-	});
-
-	module.exports = Yearly;
-
-/***/ },
-/* 324 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(325);
+	var content = __webpack_require__(323);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(327)(content, {});
+	var update = __webpack_require__(325)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../css-loader/index.js!./react-datepicker.css", function() {
-				var newContent = require("!!./../../css-loader/index.js!./react-datepicker.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./weekly.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./weekly.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -38503,21 +38163,21 @@
 	}
 
 /***/ },
-/* 325 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(326)();
+	exports = module.exports = __webpack_require__(324)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".datepicker__tether-element-attached-top .datepicker__triangle, .datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow {\n  margin-left: -8px;\n  position: absolute;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle, .datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow, .datepicker__tether-element-attached-top .datepicker__triangle::before, .datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle::before, .datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n  border-bottom-color: #aeaeae;\n}\n\n.datepicker__tether-element-attached-top .datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle, .datepicker__tether-element-attached-top .datepicker__triangle::before {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n.datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow, .datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n.datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.datepicker {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 11px;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 4px;\n  display: inline-block;\n  position: relative;\n}\n\n.datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.datepicker__tether-element-attached-bottom.datepicker__tether-element {\n  margin-top: -20px;\n}\n\n.datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n  padding-top: 8px;\n  position: relative;\n}\n\n.datepicker__current-month {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 13px;\n}\n.datepicker__current-month--hasYearDropdown {\n  margin-bottom: 16px;\n}\n\n.datepicker__navigation {\n  line-height: 24px;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  width: 0;\n  border: 6px solid transparent;\n}\n.datepicker__navigation--previous {\n  left: 10px;\n  border-right-color: #ccc;\n}\n.datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n.datepicker__navigation--next {\n  right: 10px;\n  border-left-color: #ccc;\n}\n.datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n.datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.datepicker__navigation--years-previous {\n  top: 4px;\n  border-top-color: #ccc;\n}\n.datepicker__navigation--years-previous:hover {\n  border-top-color: #b3b3b3;\n}\n.datepicker__navigation--years-upcoming {\n  top: -4px;\n  border-bottom-color: #ccc;\n}\n.datepicker__navigation--years-upcoming:hover {\n  border-bottom-color: #b3b3b3;\n}\n\n.datepicker__week-day {\n  color: #ccc;\n  display: inline-block;\n  width: 28px;\n  line-height: 24px;\n}\n\n.datepicker__month {\n  margin: 5px;\n  text-align: center;\n}\n\n.datepicker__day {\n  color: #000;\n  display: inline-block;\n  width: 24px;\n  line-height: 24px;\n  text-align: center;\n  margin: 2px;\n  cursor: pointer;\n}\n.datepicker__day:hover {\n  border-radius: 4px;\n  background-color: #f0f0f0;\n}\n.datepicker__day--today {\n  font-weight: bold;\n}\n.datepicker__day--selected, .datepicker__day--in-range {\n  border-radius: 4px;\n  background-color: #216ba5;\n  color: #fff;\n}\n.datepicker__day--selected:hover, .datepicker__day--in-range:hover {\n  background-color: #1d5d90;\n}\n.datepicker__day--disabled {\n  cursor: default;\n  color: #ccc;\n}\n.datepicker__day--disabled:hover {\n  background-color: transparent;\n}\n\n.datepicker__input-container {\n  position: relative;\n}\n\n.datepicker__input {\n  position: relative;\n  font-size: 13px;\n  border-radius: 4px;\n  box-shadow: inset 0 2px 2px #e9e9e9;\n  border: 1px solid #aeaeae;\n  line-height: 16px;\n  padding: 6px 10px 5px;\n}\n.datepicker__input:focus {\n  outline: none;\n  border-color: #aeaeae;\n  box-shadow: inset 0 2px 2px #e9e9e9, 0 0 10px 0 rgba(73, 107, 125, 0.3);\n}\n.datepicker__input:not(:valid) ~ .close-icon {\n  display: none;\n}\n\n.datepicker__year-read-view {\n  width: 50%;\n  left: 25%;\n  position: absolute;\n  bottom: 25px;\n  border: 1px solid transparent;\n  border-radius: 4px;\n}\n.datepicker__year-read-view:hover {\n  cursor: pointer;\n}\n.datepicker__year-read-view:hover .datepicker__year-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n.datepicker__year-read-view--down-arrow {\n  border-top-color: #ccc;\n  margin-bottom: 3px;\n  left: 5px;\n  top: 9px;\n  position: relative;\n  border-width: 6px;\n}\n.datepicker__year-read-view--selected-year {\n  right: 6px;\n  position: relative;\n}\n\n.datepicker__year-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  text-align: center;\n  border-radius: 4px;\n  border: 1px solid #aeaeae;\n}\n.datepicker__year-dropdown:hover {\n  cursor: pointer;\n}\n\n.datepicker__year-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.datepicker__year-option:first-of-type {\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n}\n.datepicker__year-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n.datepicker__year-option:hover {\n  background-color: #ccc;\n}\n.datepicker__year-option:hover .datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n.datepicker__year-option:hover .datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n.datepicker__year-option--selected {\n  position: absolute;\n  left: 30px;\n}\n\n.close-icon {\n  background-color: transparent;\n  border: 0;\n  cursor: pointer;\n  display: inline-block;\n  height: 0;\n  outline: 0;\n  padding: 0;\n  vertical-align: middle;\n}\n.close-icon::after {\n  background-color: #216ba5;\n  border-radius: 50%;\n  bottom: 0;\n  box-sizing: border-box;\n  color: #fff;\n  content: \"\\D7\";\n  cursor: pointer;\n  font-size: 12px;\n  height: 16px;\n  width: 16px;\n  line-height: 1;\n  margin: -8px auto 0;\n  padding: 2px;\n  position: absolute;\n  right: 7px;\n  text-align: center;\n  top: 50%;\n}\n\n.datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n}\n", ""]);
+	exports.push([module.id, ".box-wrapper{\n    text-align: center;\n    border: 1px solid #eff0f2;\n    background: #eff0f2;\n    border-radius: 6px;\n    margin: 10px;\n}\n.box-title{\n    background: #1abc9c;\n    border-top-left-radius: 6px;\n    border-top-right-radius: 6px;\n    padding: 10px;\n    color: white;\n    font-size: 16px;\n    font-weight: bold; \n}\n.checkbox-element-container{\n    margin: 10px 10px;\n    padding: 7px;\n    width: 135px;\n    border: 1px solid #34495e;\n    background: #bdc3c7;\n    border-radius: 25px;\n    display: inline-block;\n    color: #34495e;\n    font-weight: bold;\n}\n.checkbox label.weekly-select-label{\n    color: #34495e;\n    padding: 0;\n}\n.checkbox input[type=checkbox].weekly-select-checkbox{\n    position: relative;\n    float: right;\n}\n.box-inner-container-wrapper{\n    margin: 20px 10px;\n    padding: 10px 5px;    \n}\n.box-inner-main-container{\n    margin: 30px 0px;\n}\n.btn-custom-flat{\n    border-color: #34495e;\n    width: 120px;\n    color: #fff;\n    background-color: #34495e;\n    padding: 10px 15px;\n    font-size: 15px;\n    font-weight: 400;\n    line-height: 1.4;\n    border: none;\n    border-radius: 4px;\n    -webkit-transition: border .25s linear,color .25s linear,background-color .25s linear;\n    transition: border .25s linear,color .25s linear,background-color .25s linear;\n    -webkit-font-smoothing: subpixel-antialiased;\n}\n.btn-custom-flat:hover{\n    color: #fff;\n    background-color: #415b76;\n    border-color: #415b76;\n}\n.btn-custom-flat, .btn-custom-flat:hover, .btn-custom-flat:active{\n    outline: none;\n}", ""]);
 
 	// exports
 
 
 /***/ },
-/* 326 */
+/* 324 */
 /***/ function(module, exports) {
 
 	/*
@@ -38573,7 +38233,7 @@
 
 
 /***/ },
-/* 327 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -38827,13 +38487,538 @@
 
 
 /***/ },
-/* 328 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
+	__webpack_require__(327);
+	var weekly_data = [{ index: 0, day: 'Monday', val: 'MO' }, { index: 1, day: 'Tuesday', val: 'TU' }, { index: 2, day: 'Wednesday', val: 'WE' }, { index: 3, day: 'Thursday', val: 'TH' }, { index: 4, day: 'Friday', val: 'FR' }, { index: 5, day: 'Saturday', val: 'SA' }, { index: 6, day: 'Sunday', val: 'SU' }];
+	var Monthly = React.createClass({
+	    displayName: 'Monthly',
+
+	    monthDayActive: false,
+	    monthAbsoluteDayActive: false,
+	    getMonthDayNumber: function getMonthDayNumber(ref) {
+	        if (ref) {
+	            this.monthDayNumber = $(ref.currentTarget).val();
+	        }
+	    },
+	    getMonthSelectName: function getMonthSelectName(ref) {
+	        if (ref) {
+	            this.monthSelectName = $(ref.currentTarget).val();
+	        }
+	    },
+	    getAbsoluteDay: function getAbsoluteDay(ref) {
+	        if (ref) {
+	            this.monthAbsoluteDay = $(ref.currentTarget).val();
+	        }
+	    },
+	    getInitialState: function getInitialState() {
+	        this.state = {
+	            by_day: [],
+	            by_month_day: []
+	        };
+	        return this.state;
+	    },
+	    addDay: function addDay() {
+	        if (this.monthDayActive === false) {
+	            return;
+	        }
+	        if (this.monthDayNumber == 0 || this.monthSelectName == undefined) {
+	            //show error
+	            console.log('Please Enter A Valid Choice');
+	        } else {
+	            //render element
+	            this.state.by_day.push(this.monthDayNumber + '' + this.monthSelectName);
+	            $('#addDayNotify').text('Added ' + this.monthDayNumber + '' + this.monthSelectName + ' to the mailing list');
+	            $('#addDayNotify').removeClass('hide');
+	            setTimeout(function () {
+	                $('#addDayNotify').text('');
+	                $('#addDayNotify').addClass('hide');
+	            }, 2000);
+	        }
+	    },
+	    addAbsoluteDay: function addAbsoluteDay() {
+	        if (this.monthAbsoluteDayActive === false) {
+	            return;
+	        }
+	        if (this.monthAbsoluteDay == undefined) {
+	            console.log('Please select a valid choice');
+	        } else {
+	            this.state.by_month_day.push(this.monthAbsoluteDay);
+	            console.log("Pushed " + this.monthAbsoluteDay + " to array");
+	            $('#addAbsoluteDayNotify').text('Added ' + this.monthAbsoluteDay + ' to the mailing list');
+	            $('#addAbsoluteDayNotify').removeClass('hide');
+	            setTimeout(function () {
+	                $('#addAbsoluteDayNotify').text('');
+	                $('#addAbsoluteDayNotify').addClass('hide');
+	            }, 2000);
+	        }
+	    },
+	    toggleMonthday: function toggleMonthday(e) {
+	        var elem = e.currentTarget;
+	        if (elem.checked) {
+	            $('.month_by_day_key').each(function (index, element) {
+	                element.disabled = false;
+	            });
+	            $('.month_by_day_key_btn').removeClass('disabled');
+	            this.monthDayActive = true;
+	        } else {
+	            $('.month_by_day_key').each(function (index, element) {
+	                element.disabled = true;
+	            });
+	            $('.month_by_day_key_btn').addClass('disabled');
+	            this.monthDayActive = false;
+	        }
+	    },
+	    toggleAbsoluteDay: function toggleAbsoluteDay(e) {
+	        var elem = e.currentTarget;
+	        if (elem.checked) {
+	            $('.month_by_absolute_day_key').each(function (index, element) {
+	                element.disabled = false;
+	            });
+	            $('.month_by_absolute_day_key_btn').removeClass('disabled');
+	            this.monthAbsoluteDayActive = true;
+	        } else {
+	            $('.month_by_absolute_day_key').each(function (index, element) {
+	                element.disabled = true;
+	            });
+	            $('.month_by_absolute_day_key_btn').addClass('disabled');
+	            this.monthAbsoluteDayActive = false;
+	        }
+	    },
+	    handleDetailsSubmit: function handleDetailsSubmit() {
+	        var send_obj = {};
+	        send_obj['frequency'] = "MONTHLY";
+	        send_obj['data'] = {};
+	        if (this.monthDayActive) {
+	            send_obj.data.by_day = true;
+	            send_obj.data.by_day_obj = this.state.by_day;
+	        }
+	        if (this.monthAbsoluteDayActive) {
+	            send_obj.data.by_month_day = true;
+	            send_obj.data.by_month_day_obj = this.state.by_month_day;
+	        }
+	        if (!this.monthDayActive && !this.monthAbsoluteDayActive) {
+	            send_obj.data.by_month_day = false;
+	            send_obj.data.by_day = false;
+	        }
+	        this.props.submitDetails(send_obj);
+	    },
+	    render: function render() {
+	        var selectElements = weekly_data.map(function (elem, index) {
+	            return React.createElement(
+	                'option',
+	                { name: elem.day, key: elem.index, value: elem.val },
+	                ' ',
+	                elem.day,
+	                ' '
+	            );
+	        });
+	        return React.createElement(
+	            'div',
+	            { className: 'box-wrapper' },
+	            React.createElement(
+	                'div',
+	                { className: 'monthly-header-title box-title' },
+	                'Please Select The Monthly Days To Be Scheduling The Mails'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'box-inner-container-wrapper' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'box-inner-main-container' },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'checkbox monthly-checkbox-wrapper' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'type-select-wrapper' },
+	                            React.createElement('input', { type: 'checkbox', name: 'by_day_select', index: 0, onChange: this.toggleMonthday.bind(this) }),
+	                            React.createElement(
+	                                'span',
+	                                { className: 'type-select-title' },
+	                                ' Select By Day - Count(Between +4 to -4 , 0 Not Allowed)'
+	                            )
+	                        ),
+	                        React.createElement(
+	                            'div',
+	                            { className: 'checkbox-wrapper ' },
+	                            React.createElement('input', { type: 'number', className: 'month_by_day_key month-number-input', id: 'monthly_by_day', min: '-4', max: '4', onChange: this.getMonthDayNumber, disabled: true }),
+	                            React.createElement(
+	                                'span',
+	                                { className: 'month_by_day_key', disabled: true },
+	                                ' Select By Day - Day '
+	                            ),
+	                            React.createElement(
+	                                'select',
+	                                { onChange: this.getMonthSelectName, className: 'month_by_day_key dropdown-input', disabled: true },
+	                                selectElements
+	                            ),
+	                            React.createElement(
+	                                'button',
+	                                { className: 'btn month_by_day_key_btn disabled btn-add-custom', onClick: this.addDay.bind(this) },
+	                                'Add Day'
+	                            ),
+	                            React.createElement('span', { className: 'notify hide', id: 'addDayNotify' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'checkbox monthly-checkbox-wrapper' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'type-select-wrapper' },
+	                            React.createElement('input', { type: 'checkbox', name: 'by_month_day_select', index: 1, onChange: this.toggleAbsoluteDay }),
+	                            React.createElement(
+	                                'span',
+	                                { className: 'type-select-title' },
+	                                ' Select By Month Day - Count(Between 0 to 30)'
+	                            )
+	                        ),
+	                        React.createElement(
+	                            'div',
+	                            { className: 'checkbox-wrapper' },
+	                            React.createElement('input', { type: 'number', className: 'month_by_absolute_day_key month-number-input', id: 'monthly_by_month_day', min: '0', max: '30', onChange: this.getAbsoluteDay, disabled: true }),
+	                            React.createElement(
+	                                'button',
+	                                { className: 'btn month_by_absolute_day_key_btn disabled month-absolute-btn btn-add-custom', onClick: this.addAbsoluteDay.bind(this) },
+	                                'Add Day'
+	                            ),
+	                            React.createElement('span', { className: 'notify hide', id: 'addAbsoluteDayNotify' })
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'button',
+	                    { className: 'btn btn-primary', id: 'weekly_select', className: 'btn-custom-flat', onClick: this.handleDetailsSubmit },
+	                    ' Submit '
+	                )
+	            )
+	        );
+	    }
+	});
+
+	module.exports = Monthly;
+
+/***/ },
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(328);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(325)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./monthly.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./monthly.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(324)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".box-wrapper{\n    text-align: center;\n    border: 1px solid #eff0f2;\n    background: #eff0f2;\n    border-radius: 6px;\n    margin: 10px;\n}\n.box-title{\n    background: #1abc9c;\n    border-top-left-radius: 6px;\n    border-top-right-radius: 6px;\n    padding: 10px;\n    color: white;\n    font-size: 16px;\n    font-weight: bold;\n}\n.box-inner-container-wrapper{\n    margin: 20px 10px;\n    padding: 10px 5px;    \n}\n.box-inner-main-container{\n    margin: 30px 0px;\n}\n.monthly-checkbox-wrapper.checkbox{\n    display: inline-block;\n    width: 49%;\n    border: 1px solid #bdc3c7;\n    background: #bdc3c7;\n    padding: 20px;\n    margin: 5px;\n    border-radius:5px;\n}\n.type-select-wrapper{\n    margin: 10px;\n    padding: 10px;\n    font-size: 15px;\n}\n.checkbox-wrapper{\n    width: 70%;\n    margin: 0 auto;\n    padding: 15px;\n    border: 1px solid grey;\n    border-radius: 5px; \n}\n.month_by_day_key.dropdown-input{\n    border: 1px solid #48C966;\n    width: 115px;\n    background: #4BCCB2;\n    color: white;\n    font-weight: bold;\n    outline: none;\n}\n.month_by_day_key.dropdown-input:disabled, .month-number-input:disabled{\n    background:#89A09C;\n    border:1px solid black;\n}\n.month-number-input{\n    border: 1px solid #48C966;\n    border-radius: 5px;\n    width: 45px;\n    background: #4BCCB2;\n    color: white;\n    font-weight: bold;\n    outline:none;\n}\n.btn-add-custom{\n    border: 1px solid #48c9b0;\n    background: #48c9b0;\n    color: #fff;\n    padding: 10px 20px;\n    margin: 25px;\n    -webkit-transition: border .25s linear,color .25s linear,background-color .25s linear;\n    transition: border .25s linear,color .25s linear,background-color .25s linear;\n    -webkit-font-smoothing: subpixel-antialiased;    \n}\n.btn-add-custom.disabled:hover{\n    color:#fff;\n}\n.btn-add-custom:not(.disabled):hover{\n    color:#fff;\n    border:1px solid #48C966;\n    background: #48C966;\n}\n.btn-add-custom:hover, .btn-add-custom:active, .btn-add-custom:focus, .btn-add-custom.disabled:hover, .btn-add-custom.disabled:active, .btn-add-custom.disabled:focus{\n    outline: none !important;\n}\n.month-absolute-btn{\n    display: block;\n    margin: 25px auto;    \n}\n.btn-custom-flat{\n    border-color: #34495e;\n    width: 120px;\n    color: #fff;\n    background-color: #34495e;\n    padding: 10px 15px;\n    font-size: 15px;\n    font-weight: 400;\n    line-height: 1.4;\n    border: none;\n    border-radius: 4px;\n    -webkit-transition: border .25s linear,color .25s linear,background-color .25s linear;\n    transition: border .25s linear,color .25s linear,background-color .25s linear;\n    -webkit-font-smoothing: subpixel-antialiased;\n}\n.btn-custom-flat:hover{\n    color: #fff;\n    background-color: #415b76;\n    border-color: #415b76;\n}\n.btn-custom-flat, .btn-custom-flat:hover, .btn-custom-flat:active{\n    outline: none;\n}\n.type-select-title{\n    font-weight: bold;\n    color: #34495e;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 329 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(158);
+
+	var Yearly = React.createClass({
+	    displayName: 'Yearly',
+
+	    yearDayActive: false,
+	    yearWeekActive: false,
+	    getYearDay: function getYearDay(ref) {
+	        this.yearDay = $(ref.currentTarget).val();
+	    },
+	    getYearWeek: function getYearWeek(ref) {
+	        this.yearWeek = $(ref.currentTarget).val();
+	    },
+	    getInitialState: function getInitialState() {
+	        this.state = {
+	            year_day: [],
+	            year_week: []
+	        };
+	        return this.state;
+	    },
+	    toggleYearDay: function toggleYearDay(e) {
+	        var elem = e.currentTarget;
+	        if (elem.checked) {
+	            $('.by_year_day_select').each(function (index, element) {
+	                element.disabled = false;
+	            });
+	            $('.by_year_day_select_btn').removeClass('disabled');
+	            this.yearDayActive = true;
+	        } else {
+	            $('.by_year_day_select').each(function (index, element) {
+	                element.disabled = true;
+	            });
+	            $('.by_year_day_select_btn').addClass('disabled');
+	            this.yearDayActive = false;
+	        }
+	    },
+	    toggleYearWeek: function toggleYearWeek(e) {
+	        var elem = e.currentTarget;
+	        if (elem.checked) {
+	            $('.by_year_week_select').each(function (index, element) {
+	                element.disabled = false;
+	            });
+	            $('.by_year_week_select_btn').removeClass('disabled');
+	            this.yearWeekActive = true;
+	        } else {
+	            $('.by_year_week_select').each(function (index, element) {
+	                element.disabled = true;
+	            });
+	            $('.by_year_week_select_btn').addClass('disabled');
+	            this.yearWeekActive = false;
+	        }
+	    },
+	    addYearDay: function addYearDay() {
+	        if (this.yearDayActive == false) {
+	            return;
+	        }
+	        if (this.yearDay == undefined) {
+	            console.log('Please Enter A Valid Number ');
+	        } else {
+	            this.state.year_day.push(this.yearDay);
+	            $('#addYearDayNotify').text('Added ' + this.yearDay + ' to the mailing list');
+	            $('#addYearDayNotify').removeClass('hide');
+	            setTimeout(function () {
+	                $('#addYearDayNotify').text('');
+	                $('#addYearDayNotify').addClass('hide');
+	            }, 2000);
+	        }
+	    },
+	    addYearWeek: function addYearWeek() {
+	        if (this.yearWeekActive == false) {
+	            return;
+	        }
+	        if (this.yearWeek == undefined) {
+	            console.log('Please Enter A Valid Number ');
+	        } else {
+	            this.state.year_week.push(this.yearWeek);
+	            $('#addYearWeekNotify').text('Added ' + this.yearWeek + ' to the mailing list');
+	            $('#addYearWeekNotify').removeClass('hide');
+	            setTimeout(function () {
+	                $('#addYearWeekNotify').text('');
+	                $('#addYearWeekNotify').addClass('hide');
+	            }, 2000);
+	        }
+	    },
+	    handleDetailsSubmit: function handleDetailsSubmit() {
+	        var send_obj = { frequency: 'YEARLY', data: {} };
+	        if (this.yearDayActive) {
+	            send_obj.data.by_day = true;
+	            send_obj.data.by_day_obj = this.state.year_day;
+	        }
+	        if (this.yearWeekActive) {
+	            send_obj.data.by_week = true;
+	            send_obj.data.by_week_obj = this.state.year_week;
+	        }
+	        if (!this.yearDayActive && !this.yearWeekActive) {
+	            send_obj.data.by_day = false;
+	            send_obj.data.by_week = false;
+	        }
+	        this.props.submitDetails(send_obj);
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'box-wrapper' },
+	            React.createElement(
+	                'div',
+	                { className: 'box-title' },
+	                'Please Select The Yearly Days or/and Weeks To Be Scheduling The Mails'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'box-inner-container-wrapper' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'box-inner-main-container' },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'checkbox monthly-checkbox-wrapper' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'type-select-wrapper' },
+	                            React.createElement('input', { type: 'checkbox', name: 'by_year_day_select', index: 1, onChange: this.toggleYearDay.bind(this) }),
+	                            React.createElement(
+	                                'span',
+	                                { className: 'by_year_day_select type-select-title', disabled: true },
+	                                ' Select By Year Day - Count(Between -365 to +365)'
+	                            )
+	                        ),
+	                        React.createElement(
+	                            'div',
+	                            { className: 'checkbox-wrapper' },
+	                            React.createElement('input', { type: 'number', className: 'by_year_day_select month-number-input', id: 'monthly_by_month_day', min: '-365', max: '365', onChange: this.getYearDay, disabled: true }),
+	                            React.createElement(
+	                                'button',
+	                                { className: 'by_year_day_select_btn disabled month-absolute-btn btn-add-custom btn', onClick: this.addYearDay.bind(this) },
+	                                ' Add Day '
+	                            )
+	                        ),
+	                        React.createElement('span', { className: 'notify hide', id: 'addYearDayNotify' })
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'checkbox monthly-checkbox-wrapper' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'type-select-wrapper' },
+	                            React.createElement('input', { type: 'checkbox', name: 'by_year_week_select', index: 1, onChange: this.toggleYearWeek.bind(this) }),
+	                            React.createElement(
+	                                'span',
+	                                { className: 'by_year_week_select type-select-title', disabled: true },
+	                                ' Select By Year Week - Count(Between 0 to 52)'
+	                            )
+	                        ),
+	                        React.createElement(
+	                            'div',
+	                            { className: 'checkbox-wrapper' },
+	                            React.createElement('input', { type: 'number', className: 'by_year_week_select month-number-input', id: 'monthly_by_month_day', min: '0', max: '52', onChange: this.getYearWeek, disabled: true }),
+	                            React.createElement(
+	                                'button',
+	                                { className: 'by_year_week_select_btn disabled month-absolute-btn btn-add-custom btn', onClick: this.addYearWeek.bind(this) },
+	                                ' Add Week '
+	                            )
+	                        ),
+	                        React.createElement('span', { className: 'notify hide', id: 'addYearWeekNotify' })
+	                    )
+	                ),
+	                React.createElement(
+	                    'button',
+	                    { className: 'btn btn-primary btn-custom-flat', id: 'weekly_select', onClick: this.handleDetailsSubmit },
+	                    ' Submit '
+	                )
+	            )
+	        );
+	    }
+	});
+
+	module.exports = Yearly;
+
+/***/ },
+/* 330 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(331);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(325)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./home.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./home.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(324)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".main-details-div{\n    padding: 10px;\n    margin: 10px;\n    background: #eff0f2;\n    border: 1px solid #eff0f2;    \n}\n.details-field-wrapper{\n    width: 95%;\n    margin: 20px auto;\n}\n.field-key{\n    display:inline-block;\n    width:120px;\n}\n.field-value{\n    display:inline-block;\n}\n.frequency-option{\n    width: 113px;\n    background: #1abc9c;\n    padding: 10px;\n    margin: 15px;\n    border: 1px solid #1abc9c;\n    border-radius: 45px;\n    text-align: center;\n    display: inline-block;\n}\n.frequency-option-switch{\n    float:right;\n}\n.navbar-default{\n    background: #34495e;\n    color:white;\n    font-weight: bold;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(333);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(325)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../css-loader/index.js!./react-datepicker.css", function() {
+				var newContent = require("!!./../../css-loader/index.js!./react-datepicker.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(324)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".datepicker__tether-element-attached-top .datepicker__triangle, .datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow {\n  margin-left: -8px;\n  position: absolute;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle, .datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow, .datepicker__tether-element-attached-top .datepicker__triangle::before, .datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle::before, .datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n  border-bottom-color: #aeaeae;\n}\n\n.datepicker__tether-element-attached-top .datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle, .datepicker__tether-element-attached-top .datepicker__triangle::before {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n.datepicker__tether-element-attached-top .datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n.datepicker__tether-element-attached-bottom .datepicker__triangle, .datepicker__year-read-view--down-arrow, .datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n.datepicker__tether-element-attached-bottom .datepicker__triangle::before, .datepicker__year-read-view--down-arrow::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.datepicker {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 11px;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 4px;\n  display: inline-block;\n  position: relative;\n}\n\n.datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.datepicker__tether-element-attached-bottom.datepicker__tether-element {\n  margin-top: -20px;\n}\n\n.datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n  padding-top: 8px;\n  position: relative;\n}\n\n.datepicker__current-month {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 13px;\n}\n.datepicker__current-month--hasYearDropdown {\n  margin-bottom: 16px;\n}\n\n.datepicker__navigation {\n  line-height: 24px;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  width: 0;\n  border: 6px solid transparent;\n}\n.datepicker__navigation--previous {\n  left: 10px;\n  border-right-color: #ccc;\n}\n.datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n.datepicker__navigation--next {\n  right: 10px;\n  border-left-color: #ccc;\n}\n.datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n.datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.datepicker__navigation--years-previous {\n  top: 4px;\n  border-top-color: #ccc;\n}\n.datepicker__navigation--years-previous:hover {\n  border-top-color: #b3b3b3;\n}\n.datepicker__navigation--years-upcoming {\n  top: -4px;\n  border-bottom-color: #ccc;\n}\n.datepicker__navigation--years-upcoming:hover {\n  border-bottom-color: #b3b3b3;\n}\n\n.datepicker__week-day {\n  color: #ccc;\n  display: inline-block;\n  width: 28px;\n  line-height: 24px;\n}\n\n.datepicker__month {\n  margin: 5px;\n  text-align: center;\n}\n\n.datepicker__day {\n  color: #000;\n  display: inline-block;\n  width: 24px;\n  line-height: 24px;\n  text-align: center;\n  margin: 2px;\n  cursor: pointer;\n}\n.datepicker__day:hover {\n  border-radius: 4px;\n  background-color: #f0f0f0;\n}\n.datepicker__day--today {\n  font-weight: bold;\n}\n.datepicker__day--selected, .datepicker__day--in-range {\n  border-radius: 4px;\n  background-color: #216ba5;\n  color: #fff;\n}\n.datepicker__day--selected:hover, .datepicker__day--in-range:hover {\n  background-color: #1d5d90;\n}\n.datepicker__day--disabled {\n  cursor: default;\n  color: #ccc;\n}\n.datepicker__day--disabled:hover {\n  background-color: transparent;\n}\n\n.datepicker__input-container {\n  position: relative;\n}\n\n.datepicker__input {\n  position: relative;\n  font-size: 13px;\n  border-radius: 4px;\n  box-shadow: inset 0 2px 2px #e9e9e9;\n  border: 1px solid #aeaeae;\n  line-height: 16px;\n  padding: 6px 10px 5px;\n}\n.datepicker__input:focus {\n  outline: none;\n  border-color: #aeaeae;\n  box-shadow: inset 0 2px 2px #e9e9e9, 0 0 10px 0 rgba(73, 107, 125, 0.3);\n}\n.datepicker__input:not(:valid) ~ .close-icon {\n  display: none;\n}\n\n.datepicker__year-read-view {\n  width: 50%;\n  left: 25%;\n  position: absolute;\n  bottom: 25px;\n  border: 1px solid transparent;\n  border-radius: 4px;\n}\n.datepicker__year-read-view:hover {\n  cursor: pointer;\n}\n.datepicker__year-read-view:hover .datepicker__year-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n.datepicker__year-read-view--down-arrow {\n  border-top-color: #ccc;\n  margin-bottom: 3px;\n  left: 5px;\n  top: 9px;\n  position: relative;\n  border-width: 6px;\n}\n.datepicker__year-read-view--selected-year {\n  right: 6px;\n  position: relative;\n}\n\n.datepicker__year-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  text-align: center;\n  border-radius: 4px;\n  border: 1px solid #aeaeae;\n}\n.datepicker__year-dropdown:hover {\n  cursor: pointer;\n}\n\n.datepicker__year-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.datepicker__year-option:first-of-type {\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n}\n.datepicker__year-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n.datepicker__year-option:hover {\n  background-color: #ccc;\n}\n.datepicker__year-option:hover .datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n.datepicker__year-option:hover .datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n.datepicker__year-option--selected {\n  position: absolute;\n  left: 30px;\n}\n\n.close-icon {\n  background-color: transparent;\n  border: 0;\n  cursor: pointer;\n  display: inline-block;\n  height: 0;\n  outline: 0;\n  padding: 0;\n  vertical-align: middle;\n}\n.close-icon::after {\n  background-color: #216ba5;\n  border-radius: 50%;\n  bottom: 0;\n  box-sizing: border-box;\n  color: #fff;\n  content: \"\\D7\";\n  cursor: pointer;\n  font-size: 12px;\n  height: 16px;\n  width: 16px;\n  line-height: 1;\n  margin: -8px auto 0;\n  padding: 2px;\n  position: absolute;\n  right: 7px;\n  text-align: center;\n  top: 50%;\n}\n\n.datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(158);
+	__webpack_require__(330);
 
 	var Index = React.createClass({
 	    displayName: 'Index',
@@ -38863,21 +39048,21 @@
 	module.exports = Index;
 
 /***/ },
-/* 329 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(330);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(336);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 330 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(331);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(337);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 331 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {"use strict";
@@ -41301,7 +41486,7 @@
 	      return 1 === arguments.length ? this.off(a, "**") : this.off(b, a || "**", c);
 	    } }), n.fn.size = function () {
 	    return this.length;
-	  }, n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(332) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+	  }, n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(338) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 	    return n;
 	  }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));var mc = a.jQuery,
 	      nc = a.$;return n.noConflict = function (b) {
@@ -41311,7 +41496,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(220)(module)))
 
 /***/ },
-/* 332 */
+/* 338 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -41319,14 +41504,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 333 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["bootstrap"] = __webpack_require__(334);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["bootstrap"] = __webpack_require__(340);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 334 */
+/* 340 */
 /***/ function(module, exports) {
 
 	"use strict";

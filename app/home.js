@@ -4,7 +4,7 @@ var DatePicker = require('react-datepicker');
 var Moment = require('moment');
 var FrequencySelector = require('./frequency_selector');
 require('react-datepicker/dist/react-datepicker.css');
-
+require('./css/home.css');
 
 var Home = React.createClass({
     api:'http://104.236.230.241:8000/main.php?',
@@ -157,22 +157,30 @@ var Home = React.createClass({
     render: function(){
         return(
             <div className="main-parent-container">
-                <div className="form-group" >
+                <div className="form-group main-details-div" >
+                    <div className="details-field-wrapper">
+                        <label for="title" className="title-input-key" >Title For Email Schedule</label>
+                        <input type="text" name="title" placeholder="Give a title to the event" id="title" className="form-control title-input-value" required onChange={this.updateText}/>
+                    </div>
                     
-                    <label for="title">Title For Email Schedule</label>
-                    <input type="text" name="title" placeholder="Give a title to the event" id="title" className="form-control" required onChange={this.updateText}/>
+                    <div className="details-field-wrapper">
+                        <label for="startDateInput" className="field-key">Start Date</label>
+                        <DatePicker minDate={Moment()} className="date_input start_date_input field-value" name="startDateInput" id="startDateInput" selected={this.state.startDate} onChange={this.handleStartDateChange} required />
+                    </div>
                     
-                    <label for="startDateInput">Start Date</label>
-                    <DatePicker minDate={Moment()} className="date_input start_date_input" name="startDateInput" id="startDateInput" selected={this.state.startDate} onChange={this.handleStartDateChange} required />
+                    <div className="details-field-wrapper">
+                        <label for="endDateInput" className="field-key">End Date</label>
+                        <DatePicker minDate={Moment().add(1,'days')} className="date_input end_date_input field-value" name="endDateInput" id="endDateInput" selected={this.state.endDate} onChange={this.handleEndDateChange} required />
+                    </div>
                     
-                    <label for="endDateInput">End Date</label>
-                    <DatePicker minDate={Moment().add(1,'days')} className="date_input end_date_input" name="endDateInput" id="endDateInput" selected={this.state.endDate} onChange={this.handleEndDateChange} required />
-                    
-                    <label for="untilDateInput">Until Date</label>
-                    <DatePicker minDate={Moment().add(1,'days')} className="date_input until_date_input" name="untilDateInput" id="untilDateInput" selected={this.state.untilDate} onChange={this.handleUntilDateChange} />
-
-                    <label for="countNumber"> Mail Count </label>
-                    <input type='number' className="count_number" id="countNumber" required onChange={this.updateMailCount} />
+                    <div className="details-field-wrapper">
+                        <label for="untilDateInput" className="field-key">Until Date</label>
+                        <DatePicker minDate={Moment().add(1,'days')} className="date_input until_date_input field-value" name="untilDateInput" id="untilDateInput" selected={this.state.untilDate} onChange={this.handleUntilDateChange} />
+                    </div>
+                    <div className="details-field-wrapper">
+                        <label for="countNumber" className="field-key"> Mail Count </label>
+                        <input type='number' className="count_number field-value" id="countNumber" required onChange={this.updateMailCount} />
+                    </div>                        
                     <span className="error-msg hide">This is a compulsory field. Please fill it and submit the form again ! </span>
                 </div>
                 <FrequencySelector submitDetails={(details) => this.submitDetails(details)}/>

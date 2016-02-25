@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+require('./css/weekly.css');
 var weekly_data = [
     {index:0,day:'Monday',val:'MO'},
     {index:1,day:'Tuesday',val:'TU'},
@@ -54,24 +55,23 @@ var Weekly = React.createClass({
     render: function(){
         var checkboxElements = weekly_data.map(function(elem, index){
             return(
-                <div className="checkbox" key={elem.index}>
-                    <span className=""> {elem.day} </span>
-                    <input type="checkbox" name={elem.day} align="left" data-id={elem.index} onChange={this.handleChange}/> 
+                <div className="checkbox-element-container checkbox" key={elem.index}>
+                    <span for={elem.day} className="weekly-select-label"> {elem.day} </span>
+                    <input className="weekly-select-checkbox" type="checkbox" name={elem.day} align="left" data-id={elem.index} onChange={this.handleChange}/> 
                 </div>
             )
         }.bind(this));
         return(
             <div className="box-wrapper">
-                <div> 
-                    Frequency Selected To Be Weekly 
+                <div className="weekly-title box-title">
+                    Please Select The Days In A Week To Be Scheduling The Mails
                 </div>
-                <div>
-                    Please Select The Weekly Days To Be Scheduling The Mails
+                <div className="box-inner-container-wrapper">
+                    <div className="box-inner-main-container">
+                        {checkboxElements}
+                    </div>
+                    <button className="btn btn-primary btn-custom-flat" id="weekly_select" onClick={this.handleDetailsSubmit}> Submit </button>
                 </div>
-                <div className="main-container">
-                    {checkboxElements}
-                </div>
-                <button className="btn btn-primary" id="weekly_select" onClick={this.handleDetailsSubmit}> Submit </button>
             </div>           
         )
     }

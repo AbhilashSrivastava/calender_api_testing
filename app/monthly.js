@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+require('./css/monthly.css');
 var weekly_data = [
     {index:0,day:'Monday',val:'MO'},
     {index:1,day:'Tuesday',val:'TU'},
@@ -131,38 +132,41 @@ var Monthly = React.createClass({
         });
         return(
             <div className="box-wrapper">
-                <div> 
-                    Frequency Selected To Be Monthly 
-                </div>
-                <div>
+                <div className="monthly-header-title box-title">
                     Please Select The Monthly Days To Be Scheduling The Mails
                 </div>
-                <div className="main-container">
-                    <div className="checkbox">
-                        <input type="checkbox" name="by_day_select" index={0} onChange={this.toggleMonthday.bind(this)}/> 
-                        <span className=""> Select By Day - Count(Between +4 to -4 , 0 Not Allowed)</span>
-                        <div className="checkbox-wrapper ">
-                            <input type="number" className="month_by_day_key" id="monthly_by_day" min="-4" max="4" onChange={this.getMonthDayNumber} disabled/>
-                            <span className="month_by_day_key" disabled > Select By Day - Day </span>
-                            <select onChange={this.getMonthSelectName} className="month_by_day_key" disabled>
-                                {selectElements}
-                            </select>
-                            <button className="btn btn-primary month_by_day_key_btn disabled" onClick={this.addDay.bind(this)}  >Add Day</button>
-                            <span className="notify hide" id="addDayNotify" ></span>
+                <div className="box-inner-container-wrapper">
+                    <div className="box-inner-main-container">
+                        <div className="checkbox monthly-checkbox-wrapper">
+                            <div className="type-select-wrapper">
+                                <input type="checkbox" name="by_day_select" index={0} onChange={this.toggleMonthday.bind(this)}/> 
+                                <span className="type-select-title"> Select By Day - Count(Between +4 to -4 , 0 Not Allowed)</span>
+                            </div>
+                            <div className="checkbox-wrapper ">
+                                <input type="number" className="month_by_day_key month-number-input" id="monthly_by_day" min="-4" max="4" onChange={this.getMonthDayNumber} disabled/>
+                                <span className="month_by_day_key" disabled > Select By Day - Day </span>
+                                <select onChange={this.getMonthSelectName} className="month_by_day_key dropdown-input" disabled>
+                                    {selectElements}
+                                </select>
+                                <button className="btn month_by_day_key_btn disabled btn-add-custom" onClick={this.addDay.bind(this)}  >Add Day</button>
+                                <span className="notify hide" id="addDayNotify" ></span>
+                            </div>
+                        </div>
+                        <div className="checkbox monthly-checkbox-wrapper" >
+                            <div className="type-select-wrapper">
+                                <input type="checkbox" name="by_month_day_select" index={1} onChange={this.toggleAbsoluteDay}/> 
+                                <span className="type-select-title"> Select By Month Day - Count(Between 0 to 30)</span>
+                            </div>
+                            <div className="checkbox-wrapper">
+                                <input type="number" className="month_by_absolute_day_key month-number-input" id="monthly_by_month_day" min="0" max="30" onChange={this.getAbsoluteDay} disabled/>
+                                <button className="btn month_by_absolute_day_key_btn disabled month-absolute-btn btn-add-custom" onClick={this.addAbsoluteDay.bind(this)}>Add Day</button>
+                                <span className="notify hide" id="addAbsoluteDayNotify" ></span>
+                            </div>
+                            
                         </div>
                     </div>
-                    <div className="checkbox" >
-                        <input type="checkbox" name="by_month_day_select" index={1} onChange={this.toggleAbsoluteDay}/> 
-                        <span className=""> Select By Month Day - Count(Between 0 to 30)</span>
-                        <div className="checkbox-wrapper">
-                            <input type="number" className="month_by_absolute_day_key" id="monthly_by_month_day" min="0" max="30" onChange={this.getAbsoluteDay} disabled/>
-                            <button className="btn btn-primary month_by_absolute_day_key_btn disabled" onClick={this.addAbsoluteDay.bind(this)}>Add Day</button>
-                            <span className="notify hide" id="addAbsoluteDayNotify" ></span>
-                        </div>
-                        
-                    </div>
+                    <button className="btn btn-primary" id="weekly_select" className="btn-custom-flat" onClick={this.handleDetailsSubmit} > Submit </button>
                 </div>
-                <button className="btn btn-primary" id="weekly_select" onClick={this.handleDetailsSubmit} > Submit </button>
             </div> 
         )
     }

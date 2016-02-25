@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+require('./css/home.css');
 
 var Index = React.createClass({
     render: function(){
