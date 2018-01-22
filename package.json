@@ -15,7 +15,6 @@
     "babel-preset-react": "^6.5.0",
     "bootstrap": "^3.3.6",
     "history": "^2.0.0",
-    "jquery": "^2.2.0",
     "less-loader": "^2.2.2",
     "moment": "^2.11.2",
     "react": "^0.14.7",
